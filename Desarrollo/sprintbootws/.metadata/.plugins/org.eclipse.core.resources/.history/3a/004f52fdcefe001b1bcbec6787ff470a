@@ -1,0 +1,8 @@
+package com.itehl.cursos.modelo.dal;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import com.itehl.cursos.modelo.entidades.Descuento;
+public interface DescuetoRepository extends MongoRepository<Descuento, Long> {
+
+}

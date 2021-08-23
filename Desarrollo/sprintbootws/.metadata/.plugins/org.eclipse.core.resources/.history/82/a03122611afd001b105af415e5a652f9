@@ -1,0 +1,6 @@
+package com.itehl.cursos;
+
+public class Modalidad {
+   private String nombre;
+   private String descripcion;
+}

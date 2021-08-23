@@ -1,0 +1,93 @@
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar por Modalidad"
+        [(ngModel)]="tagModalidad"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="refreshList()"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Lista de Cursos</h4>
+      <div *ngIf="true">
+        <br />
+        <p>Debe dar Click Sobre el Curso...</p>
+      </div>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let curso of cursos; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveCurso(curso, i)"
+        >
+          {{ curso.nombre }}
+        </li>
+      </ul>
+
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllCursos()">
+        Borrar Todos los Cursos
+      </button>
+
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentCurso.id">
+
+        <h4>Datos del Curso </h4>
+        <div>
+          <label><strong>Nombre:</strong></label> {{ currentCurso.nombre }}
+        </div>
+        <div>
+          <label><strong>Descripción:</strong></label>
+          {{ currentCurso.descripcion }}
+        </div>
+        <div>
+          <label><strong>Costo:</strong></label>
+          {{ currentCurso.costo }}
+        </div>
+        <div>
+          <label><strong>Nro Horas:</strong></label>
+          {{ currentCurso.horas }}
+        </div>
+        <div>
+          <label><strong>Dirigido A:</strong></label>
+          {{ currentCurso.dirigidoA }}
+        </div>
+
+        <div>
+          <h3>Modalidad del Curso</h3>
+          <div>
+            <label><strong>Nombre:</strong></label> {{ currentCurso.modalidad.nombre }}
+          </div>
+          <div>
+            <label><strong>Descripción:</strong></label>
+            {{ currentCurso.modalidad.descripcion }}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="(currentIndex>-1)">
+        <div>
+          <a class="badge badge-warning" routerLink="/cursos/{{ currentCurso.id }}">
+            Editar Curso
+          </a>
+        </div>
+
+        <div>
+          <a class="badge badge-warning" routerLink="/addDescuento/{{ currentCurso.id }}">
+            Crear  Descuento
+          </a>
+        </div>
+      </div>
+    </div>
+
+</div>
+</div>

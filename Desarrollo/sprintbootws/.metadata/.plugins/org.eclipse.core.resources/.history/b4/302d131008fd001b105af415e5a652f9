@@ -1,0 +1,80 @@
+package com.itehl.cursos.entrenamiento.modelo.entidades;
+import org.springframework.data.annotation.Id;
+
+
+
+public class Curso {
+	@Id
+	public Long id;
+	private String nombre;
+	private String costo;
+	private String Descripocion;
+	private String horas;
+	private String dirigidoA;
+	private String modalidad;
+	
+	
+	
+	public Curso() {
+	}
+	
+	
+	public Curso(Long id, String nombre, String costo, String descripocion, String horas, String dirigidoA,
+			String modalidad) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.costo = costo;
+		Descripocion = descripocion;
+		this.horas = horas;
+		this.dirigidoA = dirigidoA;
+		this.modalidad = modalidad;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public String getCosto() {
+		return costo;
+	}
+	public String getDescripocion() {
+		return Descripocion;
+	}
+	public String getHoras() {
+		return horas;
+	}
+	public String getDirigidoA() {
+		return dirigidoA;
+	}
+	public String getModalidad() {
+		return modalidad;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setCosto(String costo) {
+		this.costo = costo;
+	}
+	public void setDescripocion(String descripocion) {
+		Descripocion = descripocion;
+	}
+	public void setHoras(String horas) {
+		this.horas = horas;
+	}
+	public void setDirigidoA(String dirigidoA) {
+		this.dirigidoA = dirigidoA;
+	}
+	public void setModalidad(String modalidad) {
+		this.modalidad = modalidad;
+	}
+	
+	
+	
+}

@@ -1,0 +1,7 @@
+package com.itehl.cursos.entrenamiento.modelo.dal;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface DescuetoRepository extends MongoRepository<T, ID> {
+
+}

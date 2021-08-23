@@ -1,0 +1,105 @@
+package com.itehl.cursos.presentacion.mvc.controladores;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import com.itehl.cursos.negocio.servicios.CursoService;
+import com.itehl.cursos.modelo.dal.CursoRepository;
+import com.itehl.cursos.modelo.entidades.Curso;
+import com.itehl.cursos.modelo.entidades.Modalidad;
+
+@CrossOrigin(origins = "http://localhost:8081")
+@RestController
+@RequestMapping("/api")
+public class CursoRestController {
+	@Autowired
+    private CursoRepository repo;
+	 
+	 @GetMapping("/cursos")
+	  public ResponseEntity<List<Curso>> getAllCursos(@RequestParam(required = false) String modalidad) {
+	    try {
+	      List<Curso> tutorials = new ArrayList<Curso>();
+
+	      if (modalidad == null)
+	    	  repo.findAll().forEach(tutorials::add);
+	      
+	      if (tutorials.isEmpty()) {
+	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	      }
+
+	      return new ResponseEntity<>(tutorials, HttpStatus.OK);
+	    } catch (Exception e) {
+	      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	  }
+	 
+	  @GetMapping("/cursos/{id}")
+	  public ResponseEntity<Curso> getCursoById(@PathVariable("id") long id) {
+	    Optional<Curso> curosData = repo.findById(id);
+
+	    if (curosData.isPresent()) {
+	      return new ResponseEntity<>(curosData.get(), HttpStatus.OK);
+	    } else {
+	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+	  }	 
+	  
+	  @PostMapping("/cursos")
+	  public ResponseEntity<Curso> createCurso(@RequestBody Curso curso) {
+		String modNombre = "OnDemand", modDesc="Modalidad en Demanda";
+		System.out.println("Creando curso");	
+	    try {
+	    	System.out.println("Try Creando curso");
+	    	if (curso !=null && curso.getModalidad() !=null) {
+	    		System.out.println("IF Creando curso");
+	    		modNombre = curso.getModalidad().getNombre();
+	    		modDesc=curso.getModalidad().getDescripcion();
+	    	}
+	    	System.out.println(" New Creando curso");
+	    	Curso _curso = repo
+	          .save(new Curso(curso.getNombre(), curso.getCosto(), curso.getDescripcion(),curso.getHoras(),curso.getDirigidoA(), new Modalidad(modNombre,modDesc)));
+	      return new ResponseEntity<>(_curso, HttpStatus.CREATED);
+	    } catch (Exception e) {
+	    	System.out.println(" Error Creando curso");
+	      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	  }	  
+	  
+	  @PutMapping("/cursos/{id}")
+	  public ResponseEntity<Curso> updateCurso(@PathVariable("id") long id, @RequestBody Curso curso) {
+	    Optional<Curso> cursoData = repo.findById(id);
+
+	    if (cursoData.isPresent()) {
+	    	
+	    	Curso _curso = cursoData.get();
+	    	
+	    	Modalidad _modalidad = curso.getModalidad();
+	    	
+	    	_curso.setNombre(curso.getNombre());
+	    	_curso.setDescripcion(curso.getDescripcion());
+	    	_curso.setCosto(curso.getCosto());
+	    	_curso.setHoras(curso.getHoras());
+	    	_curso.setDirigidoA(curso.getDirigidoA());
+	    	_curso.setModalidad(_modalidad);
+	      
+	      
+	      return new ResponseEntity<>(repo.save(_curso), HttpStatus.OK);
+	    } else {
+	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	    }
+	  }	  
+	  
+}

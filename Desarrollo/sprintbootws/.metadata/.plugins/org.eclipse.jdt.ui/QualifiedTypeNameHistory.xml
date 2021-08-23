@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.meo.dal.ProductRepository"/>
+    <fullyQualifiedTypeName name="com.meo.negocio.servicios.ProductService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.meo.domain.entities.Product"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="com.bezkoder.spring.data.mongodb.model.Descuento"/>
+    <fullyQualifiedTypeName name="com.bezkoder.spring.data.mongodb.model.Curso"/>
+    <fullyQualifiedTypeName name="com.bezkoder.spring.data.mongodb.repository.CursoRepository"/>
+    <fullyQualifiedTypeName name="com.bezkoder.spring.data.mongodb.model.Modalidad"/>
+    <fullyQualifiedTypeName name="com.bezkoder.spring.data.mongodb.repository.ModalidadRepository"/>
+</qualifiedTypeNameHistroy>

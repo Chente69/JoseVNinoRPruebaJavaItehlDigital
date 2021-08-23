@@ -1,0 +1,88 @@
+<h2>Descuento</h2>
+<div>
+  <div>
+    <div *ngIf="currentCurso.id">
+      <h3>Curso</h3>
+
+      <div>
+        <label><strong>Nombre:</strong></label> {{ currentCurso.nombre }}
+      </div>
+      <div>
+        <label><strong>Descripción:</strong></label> {{ currentCurso.descripcion}}
+      </div>
+      <div>
+        <label><strong>Costo:</strong></label> {{ currentCurso.costo}}
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div *ngIf="currentCurso.id">
+      <h3>Modalidad</h3>
+
+      <div>
+        <label><strong>Nombre:</strong></label> {{ currentCurso.modalidad.nombre }}
+      </div>
+      <div>
+        <label><strong>Descripción:</strong></label> {{ currentCurso.modalidad.descripcion}}
+      </div>
+    </div>
+  </div>
+
+</div>
+<div>
+  <div class="submit-form">
+
+    <div *ngIf="!submitted">
+      <h4>Ingrese los datos del descuento</h4>
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          required
+          [(ngModel)]="descuento.nombre"
+          name="nombre"
+        />
+      </div>
+      <div class="form-group">
+        <label for="pais">País</label>
+        <input
+          type="text"
+          class="form-control"
+          id="pais"
+          required
+          [(ngModel)]="descuento.pais"
+          name="pais"
+        />
+      </div>
+
+      <div class="form-group">
+
+        <div *ngIf="(currentCurso.modalidad.nombre=='OnDemand')">
+          <label><strong>Se Aplicará un descuento del 30%</strong></label>
+        </div>
+        <div *ngIf="(currentCurso.modalidad.nombre=='Online')">
+          <label><strong>Se Aplicará un descuento del 20%</strong></label>
+        </div>
+        <div *ngIf="(currentCurso.modalidad.nombre=='Privado')">
+          <label><strong>Se Aplicará un descuento del 10%</strong></label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fechaFinal">Fecha Final</label>
+        <input
+          type="text"
+          class="form-control"
+          id="fechaFinal"
+          required
+          [(ngModel)]="descuento.fechaFinal"
+          name="fechaFinal"
+        />
+      </div>
+
+      <button (click)="saveDescuento()" class="btn btn-success">Guardar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+package com.itehl.cursos.entrenamiento.negocio.dao.servicios;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+import com.itehl.cursos.entrenamiento.modelo.entidades.Curso;
+import com.itehl.cursos.modelo.dal.CursoRepository;
+@Service
+@Transactional
+public class CursoServicioDAO {
+	@Autowired
+    private CursoRepository repo;
+	
+	   public List<Curso> listAll() {
+	        return repo.findAll();
+	    }
+	     
+	    public void save(Curso product) {
+	        repo.save(product);
+	    }
+	     
+	    public Curso get(long id) {
+	        return repo.findById(id).get();
+	    }
+	     
+	    public void delete(long id) {
+	        repo.deleteById(id);
+	    }	
+}

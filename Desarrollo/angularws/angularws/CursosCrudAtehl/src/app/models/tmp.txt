@@ -1,0 +1,7 @@
+  modalidad: {
+    id?: any;  
+    nombre?: string;
+    descripcion?: string;
+}
+
+ng g class models/modalidad --type=model

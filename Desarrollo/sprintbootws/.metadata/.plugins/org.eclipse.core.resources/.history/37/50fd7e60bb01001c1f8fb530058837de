@@ -1,0 +1,83 @@
+package com.bezkoder.spring.data.mongodb.model;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection = "descuentos")
+public class Descuento {
+	@Id
+	private String id;
+	private String nombre;	
+    private String descuento;
+	private String pais;
+	private String String;
+	private String fechaFinal;
+	
+	public Descuento() {	}
+	
+	
+	
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	
+	
+	public String getDescuento() {
+		return descuento;
+	}
+
+
+
+
+
+	public void setDescuento(String descuento) {
+		this.descuento = descuento;
+	}
+
+
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	
+	public String getPais() {
+		return pais;
+	}
+
+	public String getFechaFinal() {
+		return fechaFinal;
+	}
+
+	
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public void setFechaFinal(String fechaFinal) {
+		this.fechaFinal = fechaFinal;
+	}
+	
+	 @Override
+	  public String toString() {
+	    return String.format(
+	        "Descuento[id=%s, nombre='%s',  Pais ='%s', Descuento ='%s', Fecha Final ='%s']",
+	        id, nombre, pais,descuento,fechaFinal);
+	  }	
+	
+	
+	
+	
+}

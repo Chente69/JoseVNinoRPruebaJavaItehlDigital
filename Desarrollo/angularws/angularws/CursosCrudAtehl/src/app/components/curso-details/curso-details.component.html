@@ -1,0 +1,96 @@
+<div>
+  <div *ngIf="currentCurso.id" class="edit-form">
+    <h4>Curso</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentCurso.nombre"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripcion</label>
+        <input
+          class="form-control"
+          id="descripcion"
+          required
+          [(ngModel)]="currentCurso.descripcion"
+          name="descripcion"
+        />
+      </div>
+      <div class="form-group">
+        <label for="costo">Costo</label>
+        <input
+          class="form-control"
+          id="costo"
+          required
+          [(ngModel)]="currentCurso.costo"
+          name="costo"
+        />
+      </div>
+      <div class="form-group">
+        <label for="horas">Nro. Horas</label>
+        <input
+          class="form-control"
+          id="horas"
+          required
+          [(ngModel)]="currentCurso.horas"
+          name="horas"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dirigidoA">Dirigido A</label>
+        <input
+          class="form-control"
+          id="dirigidoA"
+          required
+          [(ngModel)]="currentCurso.dirigidoA"
+          name="dirigidoA"
+        />
+      </div>
+      <div>
+        <h5>Modalidad asociada al Curso</h5>
+        <div class="form-group">
+          <label for="modalidad.nombre">Nombre</label>
+          <input
+            class="form-control"
+            id="modalidad.nombre"
+            required
+            [(ngModel)]="currentCurso.modalidad.nombre"
+            name="modalidad.nombre"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="modalidad.descripcion">Descripción</label>
+          <input
+            class="form-control"
+            id="modalidad.descripcion"
+            required
+            [(ngModel)]="currentCurso.modalidad.descripcion"
+            name="modalidad.descripcion"
+          />
+        </div>
+      </div>
+    </form>
+      <button
+        class="badge badge-primary mr-2"
+          (click)="updateCurso()"
+      >
+        Guardar Cambios
+      </button>
+      <button class="badge badge-danger mr-2" (click)="deleteCurso()">
+        Borrar
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentCurso.id">
+      <br />
+      <p>No se pudó acceder a este Curso...</p>
+    </div>
+</div>
+

@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=C\:\\datos\\ambiente\\sprintbootws\\spring-boot-data-mongodb\\.git;C\:\\datos\\ambiente\\sprintbootws\\gs-accessing-data-mongodb\\.git;
+GitRepositoriesView.GitDirectories.relative=spring-boot-data-mongodb\\.git;gs-accessing-data-mongodb\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1

@@ -1,0 +1,5 @@
+package com.itehl.cursos.entrenamiento.negocio.dao.servicios;
+
+public class CursoServicioDAO {
+
+}

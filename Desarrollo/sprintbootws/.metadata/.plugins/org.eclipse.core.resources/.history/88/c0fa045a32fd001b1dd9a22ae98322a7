@@ -1,0 +1,5 @@
+package com.itehl.cursos.presentacion.mvc.controladores;
+
+public class RestController {
+
+}

@@ -1,0 +1,7 @@
+package com.bezkoder.spring.data.mongodb.repository;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface ModalidadRepository extends MongoRepository<Modalidad, String> {
+
+}

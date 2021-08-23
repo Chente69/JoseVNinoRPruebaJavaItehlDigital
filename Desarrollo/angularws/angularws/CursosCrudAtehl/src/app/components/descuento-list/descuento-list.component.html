@@ -1,0 +1,69 @@
+<p>descuento-list works!</p>
+<div class="list row">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar por curso"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="refreshList()"
+        >
+          Buscar
+        </button>
+      </div>
+  </div>
+    <div class="col-md-6">
+      <h4>Lista de Descuentos</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let descuento of descuentos; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveDescuento(descuento, i)"
+        >
+          {{ descuento.nombre }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentDescuento.id">
+        <h4>Descuento</h4>
+        <div>
+          <label><strong>Nombre:</strong></label> {{ currentDescuento.nombre}}
+        </div>
+        <div>
+          <label><strong>Pais:</strong></label> {{ currentDescuento.pais}}
+        </div>
+        <div>
+          <label><strong>Descuento:</strong></label> {{ currentDescuento.descuento}}
+        </div>
+        <div>
+          <label><strong>Fecha Final:</strong></label> {{ currentDescuento.fechaFinal}}
+        </div>
+        <h3>Curso</h3>
+        <div>
+          <div>
+            <label><strong>Nombre:</strong></label> {{ currentDescuento.curso.nombre}}
+          </div>
+          <div>
+            <label><strong>Descripción:</strong></label> {{ currentDescuento.curso.descripcion}}
+          </div>
+        </div>
+        <h3>Modalidad</h3>
+        <div>
+          <div>
+            <label><strong>Nombre:</strong></label> {{ currentDescuento.curso.modalidad.nombre}}
+          </div>
+          <div>
+            <label><strong>Descripción:</strong></label> {{ currentDescuento.curso.modalidad.descripcion}}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

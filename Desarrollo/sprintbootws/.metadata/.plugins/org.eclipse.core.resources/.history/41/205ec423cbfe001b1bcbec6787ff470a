@@ -1,0 +1,63 @@
+package com.itehl.cursos.modelo.entidades;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Id;
+
+public class Descuento {
+	@Id
+	private Long id;
+	private Curso curso;
+	private String pais;
+	private String descuento;
+	private String fechaFinal;
+	
+	public Descuento() {	}
+	
+	
+	
+	public Descuento(Curso curso, String pais, String descuento, String fechaFinal) {
+		super();
+		this.curso = curso;
+		this.pais = pais;
+		this.descuento = descuento;
+		this.fechaFinal = fechaFinal;
+	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+	public Curso getCurso() {
+		return curso;
+	}
+	public String getPais() {
+		return pais;
+	}
+	public String getDescuento() {
+		return descuento;
+	}
+	public String getFechaFinal() {
+		return fechaFinal;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	public void setDescuento(String descuento) {
+		this.descuento = descuento;
+	}
+	public void setFechaFinal(String fechaFinal) {
+		this.fechaFinal = fechaFinal;
+	}
+	
+	
+	
+	
+	
+	
+}

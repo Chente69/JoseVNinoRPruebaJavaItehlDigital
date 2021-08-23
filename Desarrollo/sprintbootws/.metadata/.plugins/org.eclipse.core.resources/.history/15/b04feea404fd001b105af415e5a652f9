@@ -1,0 +1,7 @@
+package com.itehl.cursos.entrenamiento.modelo.dal;
+import com.itehl.cursos.entrenamiento.modelo.entidades.Curso;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface CusroRepository extends MongoRepository<Curso, Long> {
+
+}

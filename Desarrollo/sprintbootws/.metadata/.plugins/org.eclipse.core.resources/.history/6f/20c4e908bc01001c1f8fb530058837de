@@ -1,0 +1,26 @@
+package com.bezkoder.spring.data.mongodb.model;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
+@Document(collection = "descuentos")
+public class Descuento {
+	@Id
+	private String id;
+	private String nombre;
+	private Curso curso;
+	private String pais;
+    private String descuento;
+	private String fechaFinal;
+	
+	public Descuento() {	}
+	
+		
+	
+		
+	 
+	
+	
+	
+	
+}

@@ -1,0 +1,11 @@
+package com.itehl.cursos.modelo.dal;
+import com.itehl.cursos.entrenamiento.modelo.entidades.Curso;
+
+import java.util.List;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface CursoRepository extends MongoRepository<Curso, Long> {
+	 public Curso findByID(Long cursoId);
+	 public List<Curso> findAll();
+}

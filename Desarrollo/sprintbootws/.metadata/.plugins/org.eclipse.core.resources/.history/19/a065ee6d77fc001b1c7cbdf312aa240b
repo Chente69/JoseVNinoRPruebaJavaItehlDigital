@@ -1,0 +1,6 @@
+package com.itehl.cursos.entrenamiento.modelo.entidades;
+import org.springframework.data.annotation.Id;
+public class Curso {
+	@Id
+	public String id;
+}
